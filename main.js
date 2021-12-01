@@ -69,7 +69,7 @@ scrollReveal.reveal(
 
 const backToTopButton = document.querySelector('.back-to-top')
 
-function backToTOp() {
+function backToTop() {
   if (window.scrollY >= 560) {
     backToTopButton.classList.add('show')
   } else {
