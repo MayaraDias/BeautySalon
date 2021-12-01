@@ -1,0 +1,840 @@
+/*======== RESET ========================*/
+
+html,
+body,
+main,
+button,
+section,
+div,
+a {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f9f9f9;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+/*============ BASE (SERVE PARA OUTRAS PARTES DO PROJETO ========================*/
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+main {
+  margin-top: calc(var(--header-height) +2rem);
+}
+.section {
+  padding: 5rem 0;
+}
+
+.section header {
+  margin-bottom: 4rem;
+}
+
+.section .title {
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--title-color);
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  --webkit-font-smoothing: auto;
+}
+
+.container {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.divider-1 {
+  height: 1px;
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 36%, 57%, 1),
+    hsla(var(--hue), 65%, 88%, 0.34)
+  );
+}
+
+.divider-2 {
+  height: 1px;
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 65%, 88%, 0.34),
+    hsla(var(--hue), 36%, 57%, 1)
+  );
+}
+/*=========== VARIABLES ========================================*/
+:root {
+  --header-height: 4.5rem;
+  /* colors */
+  --hue: 670;
+  /* HSL color mode */
+  --base-color: hsl(var(--hue) 36% 57%);
+  --base-color-second: hsl(var(--hue) 65% 88%);
+  --base-color-alt: hsl(var(--hue) 57% 53%);
+  --title-color: hsl(var(--hue) 41% 10%);
+  --text-color: hsl(0 0% 46%);
+  --text-color-light: hsl(0 0% 98%);
+  --body-color: hsl(0 0% 98%);
+}
+
+/*=========== CABECALHO ========================================*/
+.header {
+  border-bottom: 2px solid #e4e4e4;
+  margin-bottom: 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: var(--body-color);
+  width: 100%;
+}
+
+.scroll {
+  box-shadow: 0 1px 20px 0.75px rgba(0, 0, 0, 0.2);
+}
+/*====== NAVIGATION ================================*/
+
+nav.show .menu {
+  opacity: 1;
+  visibility: visible;
+  background-color: var(--body-color);
+
+  height: 100vh;
+  width: 100vw;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  display: grid;
+  place-content: center;
+}
+
+nav.show ul .grid {
+  gap: 4rem;
+}
+
+nav.show .menu ul {
+  display: grid;
+}
+
+nav.show div.icon-close {
+  visibility: visible;
+  opacity: 1;
+  top: 1.5rem;
+}
+
+.toogle {
+  color: var(--base-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+/*=============================================*/
+nav {
+  display: flex;
+  justify-content: space-between;
+  height: var(--header-height);
+  align-items: center;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+nav .menu {
+  opacity: 0;
+  visibility: hidden;
+  top: -20;
+  transition: 0.2s;
+}
+
+nav .menu ul {
+  display: none;
+}
+
+nav ul li a {
+  transition: color 0.2s ease;
+  position: relative;
+}
+nav ul li a:hover,
+nav ul li a {
+  color: var(--base-color);
+}
+
+nav ul li a::after {
+  content: ' ';
+  width: 0%;
+  height: 2px;
+  background-color: var(--base-color);
+
+  position: absolute;
+  left: 0;
+  bottom: -1.5rem;
+  top: 1.8rem;
+
+  transition: width 0.2s;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+nav ul li {
+  text-align: center;
+}
+
+nav .icon-close {
+  visibility: hidden;
+  opacity: 0;
+
+  position: absolute;
+  top: -1.5rem;
+  right: 1.5rem;
+
+  transition: 0.2s;
+}
+
+/* ========= LOGO =================================*/
+.logo {
+  font-size: 1.31rem;
+  text-decoration: none;
+  font-weight: 700;
+  color: #0f241d;
+}
+
+.logo > span {
+  color: var(--base-color-second);
+}
+
+/*======= SECTION HOME =================================================*/
+#home {
+  overflow: hidden;
+}
+
+#home .container {
+  margin: 0;
+}
+
+#home .image {
+  position: relative;
+}
+
+#home .image::before {
+  position: absolute;
+  content: ' ';
+  background-color: var(--base-color-second);
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  top: -16.8%;
+  left: 16.7%;
+  border-radius: 5px;
+}
+
+#home .textInitialPage p {
+  text-align: center;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+  font-size: 1rem;
+  line-height: 1.31rem;
+}
+
+.btn {
+  background-color: var(--base-color);
+  border: none;
+  color: var(--text-color-light);
+  border-radius: 0.25rem;
+  padding: 0.875rem 3rem;
+  cursor: pointer;
+  margin-left: 1.5rem;
+  transition: background-color 1s;
+}
+
+.btn:hover {
+  background-color: var(--base-color-alt);
+}
+
+.button a {
+  text-decoration: none;
+  color: #f9f9f9;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/*================== SECTION ABOUT =========================*/
+#about {
+  background-color: white;
+}
+
+#about .container {
+  margin: 0;
+}
+
+#about .title {
+  margin-top: 2rem;
+  text-align: start;
+}
+
+#about p {
+  text-align: left;
+  color: var(--text-color);
+  font-family: 'DM Sans';
+  font-size: 1rem;
+  line-height: 1.3125;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+#about .image {
+  position: relative;
+}
+
+#about .image::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: var(--base-color-second);
+  position: absolute;
+  top: -8.3%;
+  left: -33%;
+  z-index: 0;
+}
+
+#about .image img {
+  position: relative;
+}
+
+#about .image img,
+#about .image::before {
+  border-radius: 0.25rem;
+}
+
+/*===================== SECTION SERVICES ===================*/
+
+#services span {
+  color: var(--base-color);
+}
+
+.section p {
+  color: var(--text-color);
+  font-size: 1rem;
+  font-family: 'DM Sans';
+  font-weight: 400;
+  line-height: 1.3125;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.cards .grid {
+  gap: 1.5rem;
+}
+
+.card {
+  padding: 3.625rem 2rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+  border-bottom: 0.25rem solid var(--base-color);
+  border-radius: 0.3rem 0.3rem 0 0;
+  text-align: center;
+}
+
+.card:hover {
+  animation: pulando 1s ease-in-out alternate infinite;
+}
+
+@keyframes pulando {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(10px);
+  }
+}
+
+.card i {
+  display: block;
+  margin-bottom: 1.5rem;
+  color: var(--base-color);
+  font-size: 5rem;
+}
+
+.card .title {
+  font-size: 1.5rem;
+  margin-bottom: 0.75em;
+}
+
+.textServices p {
+  text-align: center;
+  font-size: 1rem;
+}
+
+/*===================== SECTION TESTIMONIALS ===================*/
+#testimonials {
+  background-color: white;
+}
+
+#testimonials .container {
+  margin-left: 0;
+  margin-right: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+#testimonials header {
+  margin-bottom: 0;
+}
+
+#testimonials blockquote {
+  padding: 2rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.09);
+  border-radius: 0.25rem;
+}
+
+#testimonials blockquote p {
+  position: relative;
+  text-align: start;
+  margin-bottom: 1.5rem;
+  color: var(--title-color);
+}
+
+#testimonials blockquote p span {
+  position: absolute;
+  top: -0.5rem;
+  left: -1.875rem;
+  font-size: 3rem;
+  font-weight: 700;
+  font-style: serif;
+  font-family: 'Georgia';
+  color: var(--base-color);
+}
+
+#testimonials cite {
+  display: flex;
+  align-items: center;
+  font-style: normal;
+  color: #767676;
+}
+
+#testimonials cite img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover;
+  clip-path: circle();
+  margin-right: 0.5rem;
+}
+
+/*=========== SWIPER STYLES===========*/
+
+.swiper-slide {
+  height: auto;
+  padding: 4rem 1rem;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--base-color);
+  width: 0.65rem;
+  height: 0.65rem;
+}
+
+/*================== SECTION CONTACT =========================*/
+
+#contact .start {
+  margin-top: 0;
+  text-align: start;
+}
+
+.button {
+  margin-top: 2rem;
+}
+
+#contact .btn i {
+  font-size: 1.5rem;
+  margin-right: 0.625rem;
+}
+
+#contact .btn a {
+  display: flex;
+  justify-content: center;
+}
+
+#contact .links {
+  margin-top: 2rem;
+  margin-left: -1.5rem;
+}
+
+#contact .links i {
+  text-align: center;
+  color: var(--base-color);
+  font-size: 1.5rem;
+  margin-right: 0.625rem;
+}
+
+#contact ul li {
+  display: flex;
+  align-items: center;
+  color: var(--text-color);
+}
+
+/*================== FOOTER =========================*/
+#footer {
+  background-color: var(--base-color);
+  height: 17rem;
+}
+
+#footer a {
+  margin-top: 3rem;
+}
+
+#footer a span {
+  color: white;
+}
+
+#footer .grid {
+  gap: 0;
+}
+
+#footer .brand a {
+  margin-left: 1.5rem;
+}
+
+#footer .brand p {
+  color: white;
+  font-family: 'DM Sans';
+  margin-top: 2rem;
+}
+
+#footer i {
+  color: var(--text-color-light);
+  font-size: 1.5rem;
+  font-family: 'DM Sans';
+}
+
+#footer .socialMedias a {
+  margin-right: 2rem;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+#footer .socialMedias a:hover {
+  animation: pulando 1s ease-in-out alternate infinite;
+}
+
+@keyframes pulando {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(8px);
+  }
+}
+
+.socialMedias {
+  margin-top: 1.5rem;
+  margin-left: 3rem;
+}
+
+/* BACK TO TOP */
+
+.back-to-top {
+  background: var(--base-color);
+  font-size: 1.5rem;
+  color: var(--text-color-light);
+
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0.5rem;
+  clip-path: circle();
+
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+  transform: translateY(100%);
+}
+
+.back-to-top.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*========== RESPONSIVIDADE =================*/
+@media (min-width: 300px) {
+  #home .title {
+    text-align: center;
+  }
+
+  #home .button {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  #home .btn {
+    margin-left: 0;
+  }
+
+  #footer .brand a {
+    margin-left: 0.5rem;
+  }
+
+  #footer .brand p {
+    color: white;
+    font-family: 'DM Sans';
+    margin-top: 2rem;
+    margin-left: 0.5rem;
+  }
+
+  .socialMedias {
+    margin-left: 0.5rem;
+    margin-top: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  #home .container {
+    margin-top: 4rem;
+  }
+
+  #home .title {
+    text-align: center;
+  }
+
+  #home .button {
+    text-align: center;
+  }
+
+  #services header {
+    text-align: center;
+  }
+
+  .center {
+    display: grid;
+  }
+
+  #testimonials header {
+    margin-bottom: 0;
+    text-align: center;
+  }
+  .socialMedias {
+    margin-left: 1.5rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  /*<---------- reusable classes --------------->*/
+  .logo {
+    font-size: 2rem;
+  }
+
+  .container {
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section {
+    padding: 10rem 0;
+  }
+
+  .section header {
+    max-width: 32rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /*<----------------- navigation ----------------->*/
+  nav .menu {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+  }
+
+  nav .menu ul {
+    display: flex;
+    gap: 2rem;
+  }
+
+  nav ul li a.title {
+    font-weight: 400;
+    font-size: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav .menu ul li a.title:hover {
+    font-weight: bold;
+    -webkit-font-smoothing: auto;
+  }
+
+  nav .icon-menu {
+    display: none;
+  }
+
+  /*<-------------- HOME---------------->*/
+  #home .title {
+    font-size: 2.25rem;
+    text-align: left;
+    margin-left: -6.5rem;
+  }
+
+  #home .image {
+    order: 1;
+  }
+
+  #home .textInitialPage {
+    order: 0;
+    max-width: 24rem;
+    text-align: left;
+  }
+
+  #home .textInitialPage p {
+    font-size: 1.125rem;
+    text-align: left;
+    margin-left: -6.5rem;
+  }
+
+  #home .button {
+    height: 3.125rem;
+    margin-left: -22.8rem;
+  }
+
+  #home .image {
+    width: 30.06rem;
+  }
+
+  #home .container {
+    grid-auto-flow: column;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+
+  /*<--------------ABOUT------------->*/
+
+  #about .container {
+    grid-auto-flow: column;
+    justify-content: space-around;
+    margin: 0 auto;
+  }
+
+  #about .image {
+    margin-top: 8rem;
+    width: 30rem;
+  }
+
+  #about .image::before {
+    content: '';
+    height: 90%;
+    width: 100%;
+    background: var(--base-color-second);
+    position: absolute;
+    top: -8.3%;
+    left: -33%;
+    z-index: 0;
+  }
+
+  /*<------------services------------------->*/
+  #services header {
+    text-align: center;
+  }
+
+  #services p {
+    font-size: 1.125rem;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /*<---------- testimonials ---------------->*/
+
+  #testimonials .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #testimonials blockquote {
+    width: 34rem;
+    height: 17rem;
+    padding: 3.25rem;
+    font-size: 1.85rem;
+  }
+  #testimonials blockquote p {
+    font-size: 1.5rem;
+  }
+
+  /*<------------ contact -------------->*/
+
+  #contact .container {
+    grid-auto-flow: column;
+    align-items: center;
+  }
+
+  #contact .textContact {
+    max-width: 25rem;
+  }
+
+  #contact .textContact p {
+    font-size: 1rem;
+  }
+
+  #contact .grid {
+    font-size: 1rem;
+    gap: 3rem;
+  }
+
+  /*<------ footer ---------------->*/
+  #footer {
+    height: 14rem;
+  }
+
+  footer .container {
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #footer .brand p {
+    color: white;
+    font-family: 'DM Sans';
+    margin-top: 2rem;
+    font-size: 1.5rem;
+  }
+
+  #footer i {
+    font-size: 2rem;
+  }
+
+  .socialMedias {
+    margin-top: -1.5rem;
+  }
+}
